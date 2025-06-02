@@ -1,0 +1,1215 @@
+/* Basic Reset & Body Style */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    background-color: #ffffff;
+}
+
+/* === Header Styling === */
+/* In style.css */
+
+/* === Header Styling === */
+.site-header {
+    background-color: #fcefee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #9e2121;
+    position: relative;
+    z-index: 10;
+    /* DEFAULT (Desktop First Approach) - This is for widest screens */
+    padding: 15px 140px 15px 120px; /* Example: Large desktop padding */
+}
+
+/* ... (logo, nav ul, li, a styles as before) ... */
+
+
+/* --- TABLET SPECIFIC HEADER PADDING --- */
+@media (max-width: 1024px) { /* Adjust this breakpoint as needed for iPads */
+    .site-header {
+        /* Reduce padding for tablet screens */
+        padding: 15px 60px 15px 80px; /* Example: Less padding than desktop */
+                                      /* (15px T/B, 60px Right, 80px Left) */
+                                      /* Or use percentages: padding: 15px 5%; */
+    }
+    /* Tablet specific nav margin if needed, but often header padding is enough */
+    /* nav.main-navigation { margin-right: 15px; } */
+}
+
+
+/* --- MOBILE HEADER STYLES --- */
+@media (max-width: 768px) { /* Your existing mobile breakpoint */
+    .site-header {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 30px; /* Adjusted mobile padding slightly for a bit more space */
+    }
+    .logo-container {
+        margin-bottom: 15px;
+    }
+    nav.main-navigation {
+        margin-right: 0; /* Reset desktop margin */
+    }
+    .main-navigation ul {
+        justify-content: center;
+    }
+    .main-navigation li {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+/* Desktop specific margin for navigation (only for screens wider than tablet breakpoint) */
+/* Adjust this min-width if you want the nav margin to kick in later */
+@media (min-width: 1025px) { /* Apply this above the tablet breakpoint */
+    nav.main-navigation {
+        margin-right: 20px; /* Or your preferred desktop nav margin */
+    }
+}
+
+/* Styles for the <ul> and <li> within the navigation */
+.main-navigation ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.main-navigation li {
+    margin-left: 35px; /* Space BETWEEN individual menu items */
+}
+.main-navigation li:first-child {
+    margin-left: 0;
+}
+
+/* Mobile styles are separate and shouldn't affect this desktop issue */
+/* ... */
+
+.logo-container a { display: inline-block; }
+#header-logo { height: 45px; width: auto; display: block; }
+
+.main-navigation ul { list-style: none; margin: 0; padding: 0; display: flex; }
+.main-navigation li { margin-left: 35px; }
+.main-navigation li:first-child { margin-left: 0; }
+.main-navigation a {
+    display: inline-block;
+    text-decoration: none;
+    color: #9a3b3b;
+    text-transform: uppercase;
+    font-family: 'Roboto, sans-serif', sans-serif;
+    font-weight: 550;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+.main-navigation a:hover { color: #7a2f2f; }
+
+/* General container */
+.container { width: 90%; max-width: 1100px; margin-left: auto; margin-right: auto; padding-left: 15px; padding-right: 15px; }
+
+/* === Hero Section Styling === */
+.hero-section {
+    background-color: #9e2121; /* Main red background */
+    color: white;
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 50px; /* Added padding for flat bottom spacing */
+}
+
+.hero-content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    /* padding-bottom: 30px; /* This was for spacing before the curve,
+                               now handled by hero-section padding-bottom */
+}
+
+.hero-image-column { flex: 0 0 45%; text-align: center; }
+.hero-product-image { max-width: 100%; height: auto; max-height: 420px; display: block; margin: 0 auto; }
+.hero-text-column { flex: 1; }
+.hero-title { font-size: 42px; font-weight: 900; margin-top: 0; margin-bottom: 20px; color: #ffffff; line-height: 1.2; font-family: 'Arial Black', 'Impact', sans-serif;padding-left: 0px; }
+.hero-description { font-size: 20px; line-height: 1.6; margin-bottom: 30px; color: #f0f0f0; max-width: 550px;    padding-left: 6px; }
+.hero-cta-button { display: inline-block; background-color: #ffdd00; color: #000000; padding: 14px 32px; font-size: 20px; font-weight: bold; text-decoration: none; border-radius: 6px; transition: background-color 0.3s ease, transform 0.2s ease; font-family: Arial, Helvetica, sans-serif; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+.hero-cta-button:hover { background-color: #fbc02d; transform: translateY(-2px); }
+
+/* CURVE CSS REMOVED ENTIRELY */
+
+/* === Responsive Adjustments === */
+@media (max-width: 768px) {
+    /* Mobile Header Fix */
+    .site-header {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 15px;
+    }
+    .logo-container {
+        margin-bottom: 15px;
+    }
+    .main-navigation li {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .main-navigation li:first-child { margin-left: 10px; }
+
+    /* Other Hero Section Responsive Adjustments */
+    .hero-section {
+        padding-top: 30px;
+        padding-bottom: 30px; /* Adjust mobile bottom padding too */
+    }
+    .hero-content-wrapper {
+        flex-direction: column;
+        text-align: center;
+        /* gap: 20px; /* Adjust gap for stacked items if needed */
+    }
+    .hero-image-column, .hero-text-column {
+        flex-basis: auto;
+        width: 100%;
+    }
+    .hero-product-image {
+        max-height: 300px;
+        margin-bottom: 20px;
+    }
+    .hero-title {
+        font-size: 28px;
+    }
+    .hero-description {
+        font-size: 15px;
+    }
+    .hero-cta-button {
+        font-size: 16px;
+        padding: 12px 28px;
+    }
+}
+
+/* === Features Section Styling === */
+.features-section {
+    padding: 25px 0; /* Vertical padding, horizontal padding handled by .container */
+    margin-bottom: -40px;
+    background-color: #ffffff; /* Assuming a white background for this section */
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Creates 3 equal columns */
+    gap: 30px; /* Space between grid items */
+    margin-bottom: 40px; /* Space between grid and description text */
+}
+
+.feature-item {
+    text-align: center; /* Centers the caption below the image */
+    border: 1px solid #e0e0e0; /* Light grey border around each item, similar to image */
+    border-radius: 8px; /* Slightly rounded corners */
+    overflow: hidden; /* Ensures image corners are also rounded if image touches border */
+    /* box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Optional: subtle shadow */
+}
+
+.feature-image {
+    width: 100%; /* Makes image take full width of its container */
+    height: auto; /* Maintains aspect ratio */
+    display: block; /* Removes extra space below image */
+    aspect-ratio: 1 / 1; /* Makes images square, adjust if your images are different */
+    object-fit: cover; /* Ensures image covers the area, might crop if not square */
+}
+
+.feature-caption {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers icon and text within the caption div */
+    padding: 15px 10px;
+    background-color: #f9f9f9; /* Slightly off-white background for caption area */
+    border-top: 1px solid #e0e0e0; /* Separator line above caption */
+}
+
+.checkmark-icon {
+    width: 22px;  /* Adjust size as needed */
+    height: 22px; /* Adjust size as needed */
+    margin-right: 8px;
+}
+
+.checkmark-icon path {
+    fill: #c00000; /* Red color for the checkmark, matching header border */
+}
+
+.feature-caption span {
+    font-size: 16px;
+    font-weight: 600; /* Semi-bold */
+    color: #333333;
+}
+
+.features-description {
+    text-align: center; /* Centers the paragraph */
+    max-width: 800px;   /* Limits width for better readability */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.features-description p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #555555; /* Dark gray for text */
+}
+
+/* Responsive Adjustments for Features Section */
+@media (max-width: 992px) { /* Tablet breakpoint for 2 columns */
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    }
+}
+
+@media (max-width: 768px) { /* Mobile breakpoint for 1 column */
+    .features-grid {
+        grid-template-columns: 1fr; /* 1 column, items stack */
+        gap: 20px; /* Adjust gap for stacked items */
+    }
+    .features-section {
+        padding: 40px 0;
+    }
+    .feature-caption span {
+        font-size: 15px;
+    }
+    .features-description p {
+        font-size: 16px;
+    }
+}
+/* === Testimonials Section Styling === */
+.testimonials-section {
+    position: relative; /* For positioning the SVG background */
+    padding-top: 0px;   /* Padding above the title */
+    padding-bottom: 120px; /* Padding below the cards, over the wave's bottom */
+    background-color: #ffffff; /* Main background of the section (where title sits) */
+    overflow: hidden;
+}
+
+.testimonials-title {
+    text-align: center;
+    font-size: 32px;
+    color: #333333; /* Dark color for title on white background */
+    margin-bottom: 40px; /* Space between title and where the wave visually starts */
+    font-weight: 700;
+    position: relative; /* Ensure title is above background wave */
+    z-index: 2;
+}
+
+.testimonial-background-wave {
+    position: absolute;
+    /* top: 0; Adjusted - will start below title area */
+    top: 150px; /* ESTIMATE: Start wave below title + its margin. Adjust this value! */
+    left: 0;
+    width: 100%;
+    /* height: 100%; Adjusted - might not need to fill whole section if title is above */
+    height: calc(100% - 150px); /* ESTIMATE: Height of wave area. Adjust based on top value! */
+    /* Or set a fixed height for the wave area: e.g., height: 500px; and adjust viewBox accordingly */
+    z-index: 0; /* Behind the content */
+    line-height: 0;
+}
+
+.testimonial-background-wave svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.testimonial-background-wave svg path {
+    fill: #9e2121; /* The red color for the wave background */
+}
+
+.testimonial-cards-container { /* This div wraps the testimonial-grid */
+    position: relative; /* To ensure cards are above the z-index:0 background */
+    z-index: 1;
+    margin-top: 60px; /* Space between where wave visually starts and the cards */
+                       /* This creates the effect of cards sitting on the wave. Adjust as needed. */
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.testimonial-item {
+    background-color: #fdfaf0;
+    border-radius: 12px;
+    padding: 60px 30px 30px 30px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-avatar {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    background-color: #fff;
+}
+
+.testimonial-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.testimonial-content blockquote {
+    margin: 0 0 20px 0;
+    padding: 0;
+    border: none;
+}
+
+.testimonial-content blockquote p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #444444;
+    font-style: italic;
+}
+
+.testimonial-content cite {
+    font-style: normal;
+    font-weight: 600;
+    color: #333333;
+    font-size: 16px;
+}
+
+/* Responsive Adjustments for Testimonials Section */
+@media (max-width: 992px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 70px; /* Increased gap for stacked cards with avatar overlap */
+    }
+    .testimonial-item {
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .testimonials-section {
+        padding-top: 50px;
+        padding-bottom: 100px;
+    }
+    .testimonials-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    .testimonial-background-wave {
+        top: 120px; /* Adjust for mobile */
+        height: calc(100% - 120px); /* Adjust for mobile */
+    }
+    .testimonial-cards-container {
+        margin-top: 50px; /* Adjust for mobile */
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials-title {
+        font-size: 26px;
+    }
+    .testimonial-item {
+        padding: 50px 25px 25px 25px;
+    }
+    .testimonial-avatar {
+        width: 90px;
+        height: 90px;
+        top: -45px;
+    }
+    .testimonial-content blockquote p {
+        font-size: 14px;
+    }
+    .testimonial-content cite {
+        font-size: 15px;
+    }
+    .testimonial-background-wave {
+        top: 100px; /* Further adjust for smaller mobile */
+        height: calc(100% - 100px); /* Further adjust for smaller mobile */
+    }
+    .testimonial-cards-container {
+        margin-top: 40px; /* Further adjust for smaller mobile */
+    }
+}
+
+
+
+/* === Video Demonstration Section Styling === */
+.video-demonstration-section {
+    padding: 60px 0;
+    background-color: #ffffff;
+}
+
+.video-content-wrapper {
+    display: flex;
+    align-items: stretch; /* Key for making columns equal height */
+    gap: 40px;
+}
+
+.video-column {
+    flex: 1 1 55%; /* Adjust basis for desired width proportion */
+    display: flex; /* Use flex to ensure video child fills it */
+    border: 1px solid #ddd; /* Outer light border for the frame */
+    padding: 5px; /* Padding inside the light border, before the black frame */
+    background-color: #000; /* Black background, creating the inner frame */
+    min-height: 200px; /* Minimum height for the video column, adjust if needed */
+}
+
+.product-video {
+    width: 100%;  /* Video should take full width of .video-column */
+    height: 100%; /* Video should take full height of .video-column */
+    object-fit: cover; /* Fill the area, cropping if aspect ratios differ */
+    display: block; /* Removes extra space below */
+}
+
+/* Style for the poster image, if used */
+.product-video[poster] {
+    object-fit: cover; /* Ensure poster also covers */
+}
+
+
+.text-column {
+    flex: 1 1 45%; /* Adjust basis for desired width proportion */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center text if desired */
+}
+
+.video-slogan {
+    font-size: 38px;
+    font-weight: 900;
+    color: #000000;
+    line-height: 1.2;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+.video-slogan .highlight-red {
+    color: #c00000;
+}
+
+.video-description {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #333333;
+    margin-bottom: 30px;
+}
+
+.video-benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.video-benefits-list li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 16px;
+    color: #333333;
+}
+
+.video-benefits-list .checkmark-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.video-benefits-list .checkmark-icon path {
+    fill: #007bff; /* Blue checkmark */
+}
+
+
+/* Responsive Adjustments for Video Section */
+
+/* === TABLET STYLES === */
+@media (max-width: 992px) {
+    .video-content-wrapper {
+        flex-direction: column;
+    }
+
+    .video-column {
+        margin-bottom: 30px;
+        width: 100%; /* Ensure full width */
+
+        /* --- MODIFIED FOR TABLET --- */
+        max-height: none;     /* REMOVE fixed max-height */
+        aspect-ratio: 16 / 9; /* SET aspect ratio */
+    }
+
+    .product-video {
+        /* --- MODIFIED FOR TABLET --- */
+        object-fit: cover;   /* CHANGE to 'cover' */
+        width: 100%;         /* Ensure it fills the column */
+        height: 100%;        /* Ensure it fills the column */
+    }
+
+    .product-video[poster] {
+        /* --- MODIFIED FOR TABLET --- */
+        object-fit: cover;   /* CHANGE to 'cover' */
+    }
+
+    .text-column {
+        align-items: center;
+        text-align: center;
+    }
+    .video-slogan {
+        font-size: 32px;
+    }
+}
+
+
+/* === MOBILE STYLES === */
+@media (max-width: 768px) {
+    .video-demonstration-section {
+        padding: 40px 0;
+    }
+    .video-slogan {
+        font-size: 28px;
+    }
+    .video-description {
+        font-size: 15px;
+    }
+    .video-benefits-list li {
+        font-size: 15px;
+        justify-content: center;
+    }
+
+    .video-column {
+        flex: 1 1 55%; /* Adjust basis for desired width proportion */
+    display: flex; /* Use flex to ensure video child fills it */
+    border: 1px solid #ddd; /* Outer light border for the frame */
+    padding: 8px; /* Padding inside the light border, before the black frame */
+    background-color: #000; /* Black background, creating the inner frame */
+    min-height: 200px; /* Minimum height for the video column, adjust if needed
+        /* width: 100%; /* Already set by tablet styles, but good to be explicit if needed */
+        /* margin-bottom: 30px; /* Already set by tablet styles */
+
+        /* --- MODIFIED FOR MOBILE (if different from tablet, otherwise can inherit) --- */
+        /* aspect-ratio: 16 / 9; /* Already set by tablet styles, will inherit if not overridden */
+                                /* You could change it for very small screens if desired, e.g., 4 / 3 */
+        /* max-height: none; /* Already set by tablet styles */
+    }
+
+    /* .product-video and .product-video[poster] will inherit 'object-fit: cover' from the tablet styles
+       unless you specifically override them here for smaller mobiles.
+       Usually, 'cover' is desired for both.
+    */
+    /* Example if you wanted a different aspect ratio for very small screens:
+    .video-column {
+        aspect-ratio: 4 / 3;
+    }
+    */
+}
+
+/* === Guarantee Section Styling === */
+.guarantee-section {
+    background-color: #9e2121; /* Main red background for the section */
+    padding: 80px 0;
+    color: #ffffff; /* Default text color for this section (for Klarna slogan) */
+}
+
+.guarantee-box-wrapper {
+    position: relative; /* For positioning the badge */
+    max-width: 800px; /* Max width of the guarantee box content area */
+    margin: 0 auto 60px auto; /* Centering and bottom margin before Klarna slogan */
+}
+
+.guarantee-badge {
+    position: absolute;
+    top: -70px; /* Adjust to control overlap */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px; /* Adjust badge size */
+    height: auto;
+    z-index: 2; /* Ensure badge is above the box */
+}
+
+.guarantee-box {
+    background-color: #000000; /* Black background for the box */
+    padding: 5px; /* Creates the outer black border thickness before the "dotted" effect */
+    border-radius: 8px; /* Outer rounded corners */
+    position: relative; /* For the pseudo-element border */
+    /* "Dotted" or "dashed" border effect using a pseudo-element with repeating gradient */
+}
+
+.guarantee-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 8px; /* Match parent */
+    padding: 1px; /* Controls the thickness of the "gap" for the dotted line */
+    background: repeating-linear-gradient(
+        45deg,
+        #555, /* Darker dot color */
+        #555 1px, /* Dot size */
+        transparent 1px, /* Gap size */
+        transparent 3px /* Gap size end - total pattern size is 3px */
+    );
+    /* A simpler dashed border if the above is too complex or doesn't look right:
+    border: 2px dashed #444;
+    box-sizing: border-box;
+    */
+    mask: /* This creates the inner cutout effect */
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    z-index: 0;
+}
+
+
+.guarantee-content {
+    background-color: #ffffff; /* White inner content area */
+    color: #333333; /* Text color for guarantee content */
+    padding: 70px 40px 40px 40px; /* Top padding for badge, other paddings for content */
+    border-radius: 5px; /* Slightly rounded inner corners */
+    position: relative; /* To be above the ::before pseudo-element */
+    z-index: 1;
+}
+
+.guarantee-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.guarantee-content p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.guarantee-content p:last-child {
+    margin-bottom: 0;
+}
+
+.klarna-slogan-wrapper {
+    text-align: center;
+}
+
+.klarna-slogan {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0;
+}
+
+.klarna-slogan span {
+    display: block;
+    font-size: 22px;
+    font-weight: normal; /* Or 500 */
+    margin-top: 5px;
+}
+
+/* Responsive Adjustments for Guarantee Section */
+@media (max-width: 768px) {
+    .guarantee-section {
+        padding: 60px 0;
+    }
+    .guarantee-badge {
+        width: 120px;
+        top: -60px;
+    }
+    .guarantee-content {
+        padding: 60px 25px 25px 25px;
+    }
+    .guarantee-title {
+        font-size: 20px;
+    }
+    .guarantee-content p {
+        font-size: 15px;
+    }
+    .klarna-slogan {
+        font-size: 24px;
+    }
+    .klarna-slogan span {
+        font-size: 18px;
+    }
+}
+
+
+
+
+
+
+/* === Product Purchase Section Styling === */
+.product-purchase-section {
+    padding: 60px 0;
+    background-color: #f9f9f9; /* Light grey background for the section */
+}
+
+.purchase-options-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px; /* Space between cards */
+    align-items: flex-start; /* Align cards to the top if they have different heights */
+}
+
+.purchase-option-card {
+    /* MODIFIED: Changed background from #ffffff to the light blue */
+    background-color: #e6f3ff; /* Very light blue base background */
+    border: 2px solid #000000; /* Black border for the cards */
+    border-radius: 8px;
+    padding: 0; /* Padding will be on inner elements or specific parts */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items like image, price, button */
+    position: relative; /* For absolute positioning of tags */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Added transition */
+}
+
+/* NEW: Hover effect for the card */
+.purchase-option-card:hover {
+    background-color: #d0e8ff; /* Brighter blue on hover */
+    /* Optional: Slightly enhance shadow or transform on hover for more feedback */
+    /* box-shadow: 0 6px 16px rgba(0,0,0,0.12); */
+    /* transform: translateY(-2px); /* Subtle lift effect - be careful if already scaled */
+}
+
+
+.plan-header {
+    background-color: #000000; /* Black header */
+    color: #ffffff;
+    padding: 12px 15px;
+    width: 100%;
+    border-top-left-radius: 6px; /* Match card's border-radius */
+    border-top-right-radius: 6px;
+    box-sizing: border-box;
+}
+.plan-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.popular-tag, .recommended-tag {
+    font-size: 11px;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    display: inline-block; /* So it doesn't take full width */
+}
+.popular-tag {
+    background-color: #5cb85c; /* Green for popular, or adjust */
+}
+.recommended-tag {
+    background-color: #d9534f; /* Red for recommended, matching header */
+}
+
+.plan-product-image {
+    width: 80%; /* Adjust as needed */
+    max-width: 220px; /* Max size for the image */
+    height: auto;
+    margin: 15px auto;
+    display: block;
+}
+.plan-product-image.small-image {
+    width: 50%;
+    max-width: 120px; /* Smaller image for full payment option */
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+
+.price-tag {
+    margin: 10px 0 15px 0;
+    color: #000000;
+}
+.price-tag .price-amount {
+    font-size: 48px; /* Large price */
+    font-weight: 900; /* Very bold */
+}
+.price-tag .price-period {
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 2px;
+    color: #555;
+}
+.price-tag.full-payment-price .price-amount {
+    font-size: 56px; /* Even larger for full payment */
+}
+
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    width: 100%;
+}
+.plan-features li {
+    background-color: #000000; /* Black background for feature strip */
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1px; /* Creates thin line effect if needed */
+}
+.plan-features li.highlight-feature {
+    background-color: #c00000; /* Red for highlighted feature */
+}
+.checkmark-icon-small {
+    width: 14px;
+    height: 14px;
+    fill: #ffffff;
+    margin-right: 8px;
+}
+
+.order-now-button {
+    display: inline-flex; /* For icon and text alignment */
+    align-items: center;
+    justify-content: center;
+    background-color: #ffdd00; /* Yellow button */
+    color: #000000;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 12px 25px;
+    border-radius: 6px;
+    text-decoration: none;
+    margin: 0 auto 15px auto; /* Centering and margin */
+    width: calc(100% - 60px); /* Button takes most of card width, adjust as needed */
+    max-width: 250px;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+}
+.order-now-button:hover {
+    background-color: #fbc02d;
+}
+.cart-icon {
+    width: 20px;
+    height: 20px;
+    fill: #000000;
+    margin-left: 8px;
+}
+
+.payment-methods-image {
+    max-width: 180px; /* Adjust size as needed */
+    height: auto;
+    margin: 0 auto 10px auto;
+    display: block;
+}
+
+.klarna-link {
+    font-size: 13px;
+    color: #333;
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: block;
+}
+.klarna-link:hover {
+    text-decoration: underline;
+}
+.klarna-link strong {
+    font-weight: bold;
+}
+
+.plan-footer-text {
+    font-size: 13px;
+    color: #555;
+    padding: 0 15px 20px 15px; /* Padding for the text in the full payment card */
+}
+
+/* Highlighted Recommended Card Styling */
+.purchase-option-card.recommended-card {
+    border-color: #c00000; /* Red border for recommended */
+    /* MODIFIED: Background is now light blue, same as others by default */
+    /* background-color: #ffffff; <-- Remove this if it was here, or ensure it's overridden by the base .purchase-option-card blue */
+    transform: scale(1.03); /* Slightly larger */
+    z-index: 1; /* To bring it above others if overlap occurs due to scale */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+/* The :hover for recommended card will inherit from the general .purchase-option-card:hover */
+
+.plan-header.recommended-header {
+    background-color: #c00000; /* Red header for recommended card */
+}
+
+
+/* Responsive Adjustments for Purchase Section */
+@media (max-width: 992px) { /* Tablet: 2 columns */
+    .purchase-options-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* Make the third item (full payment) span full width if it's alone on a row */
+    .purchase-options-grid .purchase-option-card:nth-child(3):last-child {
+        grid-column: 1 / -1; /* Span full width */
+        max-width: 450px; /* Limit width when it's full-width */
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 768px) { /* Mobile: 1 column */
+    .purchase-options-grid {
+        grid-template-columns: 1fr; /* Stack cards */
+        gap: 30px;
+    }
+    .purchase-option-card.recommended-card {
+        transform: scale(1); /* No scaling on mobile stack */
+    }
+     /* Reset full-width span for single column layout */
+    .purchase-options-grid .purchase-option-card:nth-child(3):last-child {
+        grid-column: auto;
+        max-width: none;
+    }
+
+    .plan-header h3 { font-size: 15px; }
+    .price-tag .price-amount { font-size: 40px; }
+    .price-tag.full-payment-price .price-amount { font-size: 48px; }
+    .order-now-button { font-size: 18px; width: calc(100% - 40px); }
+}
+
+
+
+
+/* ... (all your previous CSS) ... */
+
+/* === FAQ Section Styling === */
+.faq-section {
+    background-color: #e9eafc;
+    padding: 60px 0;
+    margin-top: 40px;
+}
+/* ... (faq-main-title, faq-intro as before) ... */
+.faq-main-title {
+    text-align: center;
+    font-size: 42px;
+    font-weight: 900;
+    color: #000000;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.faq-intro {
+    text-align: center;
+    font-size: 17px;
+    color: #333333;
+    max-width: 700px;
+    margin: 0 auto 40px auto;
+    line-height: 1.6;
+}
+
+.faq-accordion {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid #d0d3e8;
+}
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+    text-align: left;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    color: #1a1a2e;
+    outline: none;
+}
+
+.faq-question:hover,
+.faq-question:focus {
+    color: #0056b3;
+}
+
+.faq-question span:first-child {
+    flex-grow: 1;
+    margin-right: 15px;
+}
+
+.faq-icon {
+    font-size: 24px;
+    font-weight: bold;
+    color: #555;
+    transition: transform 0.2s ease-in-out;
+}
+
+/* Icons are toggled by JS changing their display style directly */
+
+.faq-answer {
+    /* display: none; /* Initially hidden by inline style in HTML, controlled by JS */
+    padding: 0 0 0 0; /* No padding when closed */
+    font-size: 16px;
+    line-height: 1.7;
+    color: #4a4a69;
+    overflow: hidden;
+    max-height: 0; /* For slide animation */
+    transition: max-height 0.35s ease-out, padding-top 0.35s ease-out, padding-bottom 0.35s ease-out;
+}
+
+.faq-answer.open {
+    max-height: 700px; /* A large enough value for content, adjust if necessary */
+    padding-top: 10px;
+    padding-bottom: 25px; /* Padding when open */
+}
+
+.faq-answer p {
+    margin: 0 0 10px 0;
+}
+.faq-answer p:last-child {
+    margin-bottom: 0;
+}
+
+/* Responsive for FAQ */
+@media (max-width: 768px) {
+    .faq-main-title { font-size: 32px; }
+    .faq-intro { font-size: 16px; padding: 0 15px; }
+    .faq-question { font-size: 16px; padding: 18px 0; }
+    .faq-answer { font-size: 15px; }
+}
+
+
+/* === Main Footer Section Styling === */
+.site-footer-main {
+    background-color: #1e1e1e; /* Very dark gray / off-black */
+    color: #a0a0a0; /* Light gray for text */
+    padding: 50px 0 30px 0; /* Top, horizontal (via container), bottom padding */
+    font-size: 13px; /* Smaller base font for footer */
+    line-height: 1.7;
+}
+
+.site-footer-main .container {
+    max-width: 900px; /* Slightly narrower container for footer text */
+}
+
+.footer-disclaimer-area {
+    margin-bottom: 30px;
+}
+
+.disclaimer-box {
+    border: 1px solid #444444; /* Subtle border for the first disclaimer box */
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.footer-disclaimer-area p {
+    margin-bottom: 15px;
+}
+.footer-disclaimer-area p:last-child {
+    margin-bottom: 0;
+}
+
+
+.footer-links-bar {
+    background-color: #333333; /* Lighter gray bar for links */
+    border-radius: 4px;
+    margin-bottom: 30px;
+    overflow: hidden; /* To contain floated list items or use flex */
+}
+
+.footer-links-bar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Use flexbox for easy alignment and spacing */
+    justify-content: space-around; /* Distribute items evenly */
+}
+
+.footer-links-bar li {
+    /* flex: 1; /* If you want them to take equal width */
+    text-align: center;
+    border-right: 1px solid #4d4d4d; /* Separator line */
+}
+
+.footer-links-bar li:last-child {
+    border-right: none; /* No border on the last item */
+}
+
+.footer-links-bar a {
+    display: block;
+    padding: 12px 20px;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.footer-links-bar a:hover {
+    background-color: #4a4a4a;
+}
+
+.footer-support-info,
+.footer-eu-consumers {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 13px;
+}
+
+.footer-support-info a,
+.footer-eu-consumers a {
+    color: #cccccc; /* Brighter link color for visibility */
+    text-decoration: underline;
+}
+
+.footer-support-info a:hover,
+.footer-eu-consumers a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.footer-copyright {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #333333; /* Separator above copyright */
+    font-size: 12px;
+    color: #777777;
+}
+
+/* Responsive Adjustments for Footer */
+@media (max-width: 768px) {
+    .site-footer-main {
+        padding: 40px 0 20px 0;
+        font-size: 12px;
+    }
+    .footer-disclaimer-area,
+    .footer-links-bar,
+    .footer-support-info,
+    .footer-eu-consumers {
+        margin-bottom: 25px;
+    }
+    .disclaimer-box {
+        padding: 15px;
+    }
+    .footer-links-bar ul {
+        flex-direction: column; /* Stack links on mobile */
+    }
+    .footer-links-bar li {
+        border-right: none; /* Remove side borders */
+        border-bottom: 1px solid #4d4d4d; /* Add bottom borders */
+    }
+    .footer-links-bar li:last-child {
+        border-bottom: none;
+    }
+    .footer-links-bar a {
+        padding: 10px 15px;
+        font-size: 13px;
+    }
+}
+html {
+scroll-behavior: smooth;
+}
